@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI calculator</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+            height: 500px;
+            width: 100%;
+        }
+        .section{
+            height: 400px;
+            margin: 150px 0 0 300px;
+            width: 60%;
+            border: 2px solid black;
+            background-color: #e3c6e2;
+            text-align: center;
+            border-radius: 20px;
+        }
+        .container{
+            border: 2px solid white;
+            box-shadow: 0px 2px lightblue;
+            width: 80%;
+            height: 350px;
+            margin: 20px 0 0 90px;
+            background-color: #acf15982;
+            border-radius: 0 10px 0 10px;
+        }
+        label{
+            width: 50px;
+            font-size: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 500;
+            margin-right: 50px;
+        }
+        h1{
+            color: red;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            letter-spacing: 2px;
+            text-decoration: underline;
+        }
+        h1:hover{
+            color: black;
+            background-color: aqua;
+        }
+        p{
+            font-size: x-large;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        #age, #bmi{
+            margin-left: 25px;
+        }
+        button{
+            width: 20%;
+            margin: 5px 5px 5px 30px;
+            width: 200px;
+            border-radius: 5px;
+            color: #241f1f;
+            border: none;
+            background-color: #fff;
+            font-size: 20px;
+            padding: 3px;
+            background-color: aqua;
+        }
+        button::before{
+            background-color: #e16b6b;
+            
+        }
+        button:hover{
+            background-color: #e3c6e2;
+            transition: 0.5;
+            border: 2px solid #e16b6b;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div class="section">
+        <div class="container">
+            <div class="heading">
+                <h1>BMI CALCULATOR</h1>
+                <p>Enter all Details</p>
+                <label for="Age">Age</label>
+                <input type="number" id="age" ><br><br>
+                <label for="height">Height</label>
+                <input type="number" id="height"><br><br>
+                <label for="weight">Weight</label>
+                <input type="number" id="weight"><br><br>
+                <button type="button" id="button">Calculate BMI</button><br>
+                <label for="">BMI</label>
+                <input type="number" id="bmi">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("button").addEventListener("click", function() {
+            // Get user inputs
+            var age = parseFloat(document.getElementById('age').value);
+            var height = parseFloat(document.getElementById('height').value);
+            var weight = parseFloat(document.getElementById('weight').value);
+
+            // Check if inputs are valid
+            if (isNaN(age) || isNaN(height) || isNaN(weight)) {
+                alert("Please enter valid values for age, height, and weight.");
+                return;
+            }
+
+            // Calculate BMI
+            var bmi = weight / ((height / 100) * (height / 100));
+
+            // Display the calculated BMI
+            document.getElementById('bmi').value = bmi.toFixed(2);
+        })
+    </script>
+
+</body>
+</html>
